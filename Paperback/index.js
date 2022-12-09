@@ -2601,7 +2601,7 @@ exports.parseLangCode = parseLangCode;
 },{"paperback-extensions-common":7}],53:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Paperback = exports.KomgaRequestInterceptor = exports.capitalize = exports.parseMangaStatus = exports.ReaperScans = void 0;
+exports.ReaperScans = exports.KomgaRequestInterceptor = exports.capitalize = exports.parseMangaStatus = exports.ReaperScansInfo = void 0;
 const paperback_extensions_common_1 = require("paperback-extensions-common");
 const Languages_1 = require("./Languages");
 const Settings_1 = require("./Settings");
@@ -2618,7 +2618,7 @@ const Common_1 = require("./Common");
 //  - homepage sections
 //  - getTags() which is called on the homepage
 //  - search method which is called even if the user search in an other source
-exports.ReaperScans = {
+exports.ReaperScansInfo = {
     version: "1.0.0",
     name: "ReaperScans",
     icon: "icon.png",
@@ -2688,7 +2688,7 @@ class KomgaRequestInterceptor {
     }
 }
 exports.KomgaRequestInterceptor = KomgaRequestInterceptor;
-class Paperback extends paperback_extensions_common_1.Source {
+class ReaperScans extends paperback_extensions_common_1.Source {
     constructor() {
         super(...arguments);
         this.stateManager = createSourceStateManager({});
@@ -3061,7 +3061,7 @@ class Paperback extends paperback_extensions_common_1.Source {
         }
     }
 }
-exports.Paperback = Paperback;
+exports.ReaperScans = ReaperScans;
 
 },{"./Common":51,"./Languages":52,"./Settings":54,"paperback-extensions-common":7}],54:[function(require,module,exports){
 "use strict";
