@@ -99499,8 +99499,8 @@ function extend() {
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getResponse = void 0;
-const cloudscraper = require('cloudscraper');
 async function getResponse(url) {
+    const cloudscraper = require('cloudscraper');
     return cloudscraper.get(url);
 }
 exports.getResponse = getResponse;
@@ -99511,7 +99511,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReaperScans = exports.ReaperScansInfo = void 0;
 const paperback_extensions_common_1 = require("paperback-extensions-common");
 const CloudscraperRequest_1 = require("./CloudscraperRequest");
-const cloudscraper = require('cloudscraper');
 exports.ReaperScansInfo = {
     version: "1.0.0",
     name: "ReaperScans",
@@ -99698,5 +99697,5 @@ class ReaperScans extends paperback_extensions_common_1.Source {
 }
 exports.ReaperScans = ReaperScans;
 
-},{"./CloudscraperRequest":507,"cloudscraper":144,"paperback-extensions-common":314}]},{},[508])(508)
+},{"./CloudscraperRequest":507,"paperback-extensions-common":314}]},{},[508])(508)
 });
