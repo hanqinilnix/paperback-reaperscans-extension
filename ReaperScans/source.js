@@ -99497,11 +99497,14 @@ function extend() {
 
 },{}],507:[function(require,module,exports){
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getResponse = void 0;
+const cloudscraper_1 = __importDefault(require("cloudscraper"));
 async function getResponse(url) {
-    const cloudscraper = require('cloudscraper');
-    return cloudscraper.get(url);
+    return (0, cloudscraper_1.default)(url);
 }
 exports.getResponse = getResponse;
 
@@ -99511,6 +99514,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReaperScans = exports.ReaperScansInfo = void 0;
 const paperback_extensions_common_1 = require("paperback-extensions-common");
 const CloudscraperRequest_1 = require("./CloudscraperRequest");
+// const cloudscraper = require('cloudscraper')
 exports.ReaperScansInfo = {
     version: "1.0.0",
     name: "ReaperScans",
@@ -99652,12 +99656,12 @@ class ReaperScans extends paperback_extensions_common_1.Source {
             url: BASE_DOMAIN,
             method: 'GET',
         });
-        // let response = await this.requestManager.schedule(request, 1)
         let response = await (0, CloudscraperRequest_1.getResponse)(BASE_DOMAIN);
-        // response = await getResponse(BASE_DOMAIN)
-        if (response.status != 200) {
-            throw new Error("Fuck you: " + response.status);
-        }
+        // let response = await cloudscraper({URL: BASE_DOMAIN})
+        // let response = await this.requestManager.schedule(request, 1)
+        // if (response.status != 200) {
+        //     throw new Error("Fuck you: " + response.status)
+        // }
         let $ = this.cheerio.load(response.data);
         let stringContains = function (str, cmp) {
             if (str.length < cmp.length) {
