@@ -2619,19 +2619,23 @@ const Common_1 = require("./Common");
 //  - getTags() which is called on the homepage
 //  - search method which is called even if the user search in an other source
 exports.PaperbackInfo = {
-    version: "1.2.8",
-    name: "Paperback",
+    version: "1.0.0",
+    name: "ReaperScans",
     icon: "icon.png",
-    author: "Lemon | Faizan Durrani",
-    authorWebsite: "https://github.com/FramboisePi",
-    description: "Komga client extension for Paperback",
+    author: "hanqinilnix",
+    authorWebsite: "https://github.com/hanqinilnix",
+    description: "Extension that pulls manhwa from ReaperScans",
     contentRating: paperback_extensions_common_1.ContentRating.EVERYONE,
-    websiteBaseURL: "https://komga.org",
+    websiteBaseURL: "https://reaperscans.com",
     sourceTags: [
         {
-            text: "Self hosted",
+            text: "Cloudflare",
             type: paperback_extensions_common_1.TagType.RED,
         },
+        {
+            text: "Buggy",
+            type: paperback_extensions_common_1.TagType.YELLOW
+        }
     ],
 };
 const SUPPORTED_IMAGE_TYPES = [
