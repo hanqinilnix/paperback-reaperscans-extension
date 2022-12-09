@@ -49,7 +49,7 @@ import {
 //  - getTags() which is called on the homepage
 //  - search method which is called even if the user search in an other source
 
-export const ReaperScans: SourceInfo = {
+export const ReaperScansInfo: SourceInfo = {
     version: "1.0.0",
     name: "ReaperScans",
     icon: "icon.png",
@@ -136,7 +136,7 @@ export class KomgaRequestInterceptor implements RequestInterceptor {
     }
 }
 
-export class Paperback extends Source {
+export class ReaperScans extends Source {
     stateManager = createSourceStateManager({});
 
     requestManager = createRequestManager({
