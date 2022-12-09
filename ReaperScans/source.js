@@ -99499,6 +99499,7 @@ function extend() {
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getResponse = void 0;
+require("cloudscraper");
 async function getResponse(url) {
     const cloudscraper = require('cloudscraper');
     return cloudscraper(url);
