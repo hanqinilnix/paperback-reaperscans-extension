@@ -180,13 +180,17 @@ export class ReaperScans extends Source { // The name of this class does not hav
 
     override async getHomePageSections(sectionCallback: (section: HomeSection) => void): Promise<void> {
         // throw new Error("Method not implemented")
-        // let request = {
-        //     url: BASE_DOMAIN,
-        //     method: 'GET'
-        // }
+        let request = createRequestObject({
+            url: BASE_DOMAIN,
+            method: 'GET',
+        })
 
-        let response = await getResponse(BASE_DOMAIN)
-        let $ = this.cheerio.load(response)
+        let response = await this.requestManager.schedule(request, 1)
+        // response = await getResponse(BASE_DOMAIN)
+        if (response.status != 200) {
+            throw new Error("Fuck you: " + response.status)
+        }
+        let $ = this.cheerio.load(response.data)
 
         let stringContains = function (str:string, cmp:string) {
             if (str.length < cmp.length) {
