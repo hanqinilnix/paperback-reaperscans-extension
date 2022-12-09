@@ -99524,14 +99524,15 @@ let BASE_DOMAIN = "https://reaperscans.com";
 class ReaperScans extends paperback_extensions_common_1.Source {
     constructor() {
         super(...arguments);
-        this.cloudscraper = require('cloudscraper');
         this.requestManager = createRequestManager({
             requestsPerSecond: 2,
             requestTimeout: 10000,
         });
+        this.cloudscraper = require('cloudscraper');
     }
     // mangaId: comics/{some-number}-{title}/
     async getMangaDetails(mangaId) {
+        throw new Error("Method not implemented");
         let request = {
             url: BASE_DOMAIN + mangaId,
             method: 'GET'
@@ -99554,6 +99555,7 @@ class ReaperScans extends paperback_extensions_common_1.Source {
         });
     }
     async getChapters(mangaId) {
+        throw new Error("Method not implemented");
         let request = {
             url: BASE_DOMAIN + mangaId,
             method: 'GET'
@@ -99612,6 +99614,7 @@ class ReaperScans extends paperback_extensions_common_1.Source {
         });
     }
     async getChapterDetails(mangaId, chapterId) {
+        throw new Error("Method not implemented");
         let request = {
             url: BASE_DOMAIN + mangaId + chapterId,
             method: 'GET'
@@ -99634,6 +99637,7 @@ class ReaperScans extends paperback_extensions_common_1.Source {
         return BASE_DOMAIN + mangaId;
     }
     async getHomePageSections(sectionCallback) {
+        throw new Error("Method not implemented");
         let request = {
             url: BASE_DOMAIN,
             method: 'GET'
