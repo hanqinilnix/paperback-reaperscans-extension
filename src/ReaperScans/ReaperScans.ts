@@ -16,8 +16,6 @@ import {
 
 import { getResponse } from "./CloudscraperRequest";
 
-const cloudscraper = require('cloudscraper')
-
 export const ReaperScansInfo: SourceInfo = { // The name of this variable has to be {filename}Info in order for the source to appear on the site.
     version: "1.0.0",
     name: "ReaperScans",
