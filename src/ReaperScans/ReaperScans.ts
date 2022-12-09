@@ -35,7 +35,7 @@ export const ReaperScansInfo: SourceInfo = { // The name of this variable has to
     ],
 };
 
-let BASE_DOMAIN = "https://reaperscans.com"
+let BASE_DOMAIN = "https://reaperscans.com/"
 
 
 export class ReaperScans extends Source { // The name of this class does not have to be {filename}.
@@ -44,7 +44,7 @@ export class ReaperScans extends Source { // The name of this class does not hav
         requestTimeout: 10000,
     });
     
-    // cloudscraper = require('cloudscraper')
+    cloudscraper = require('cloudscraper')
 
     // mangaId: comics/{some-number}-{title}/
     async getMangaDetails(mangaId: string): Promise<Manga> {
