@@ -50,19 +50,23 @@ import {
 //  - search method which is called even if the user search in an other source
 
 export const PaperbackInfo: SourceInfo = {
-    version: "1.2.8",
-    name: "Paperback",
+    version: "1.0.0",
+    name: "ReaperScans",
     icon: "icon.png",
-    author: "Lemon | Faizan Durrani",
-    authorWebsite: "https://github.com/FramboisePi",
-    description: "Komga client extension for Paperback",
+    author: "hanqinilnix",
+    authorWebsite: "https://github.com/hanqinilnix",
+    description: "Extension that pulls manhwa from ReaperScans",
     contentRating: ContentRating.EVERYONE,
-    websiteBaseURL: "https://komga.org",
+    websiteBaseURL: "https://reaperscans.com",
     sourceTags: [
         {
-            text: "Self hosted",
+            text: "Cloudflare",
             type: TagType.RED,
         },
+        {
+            text: "Buggy",
+            type: TagType.YELLOW
+        }
     ],
 };
 
