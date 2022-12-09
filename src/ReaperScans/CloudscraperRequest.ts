@@ -1,5 +1,5 @@
-import "cloudscraper"
+
 export async function getResponse(url: string) {
     const cloudscraper = require('cloudscraper')
-    return cloudscraper(url)
+    return cloudscraper.get(url)
 }

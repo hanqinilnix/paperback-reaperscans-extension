@@ -39,7 +39,6 @@ export const ReaperScansInfo: SourceInfo = { // The name of this variable has to
 
 let BASE_DOMAIN = "https://reaperscans.com/"
 
-
 export class ReaperScans extends Source { // The name of this class does not have to be {filename}.
     requestManager = createRequestManager({
         requestsPerSecond: 2,
