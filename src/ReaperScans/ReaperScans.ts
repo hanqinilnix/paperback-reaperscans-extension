@@ -185,7 +185,8 @@ export class ReaperScans extends Source { // The name of this class does not hav
             method: 'GET',
         })
 
-        let response = await this.requestManager.schedule(request, 1)
+        // let response = await this.requestManager.schedule(request, 1)
+        let response = await getResponse(BASE_DOMAIN)
         // response = await getResponse(BASE_DOMAIN)
         if (response.status != 200) {
             throw new Error("Fuck you: " + response.status)
