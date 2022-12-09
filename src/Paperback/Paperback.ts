@@ -49,7 +49,7 @@ import {
 //  - getTags() which is called on the homepage
 //  - search method which is called even if the user search in an other source
 
-export const ReaperScansInfo: SourceInfo = {
+export const ReaperscansInfo: SourceInfo = {
     version: "1.0.0",
     name: "ReaperScans",
     icon: "icon.png",
