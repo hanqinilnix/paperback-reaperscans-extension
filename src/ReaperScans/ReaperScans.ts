@@ -14,6 +14,10 @@ import {
     TagType,
 } from "paperback-extensions-common";
 
+import { getResponse } from "./CloudscraperRequest";
+
+const cloudscraper = require('cloudscraper')
+
 export const ReaperScansInfo: SourceInfo = { // The name of this variable has to be {filename}Info in order for the source to appear on the site.
     version: "1.0.0",
     name: "ReaperScans",
@@ -43,8 +47,6 @@ export class ReaperScans extends Source { // The name of this class does not hav
         requestsPerSecond: 2,
         requestTimeout: 10000,
     });
-    
-    cloudscraper = require('cloudscraper')
 
     // mangaId: comics/{some-number}-{title}/
     async getMangaDetails(mangaId: string): Promise<Manga> {
@@ -179,57 +181,57 @@ export class ReaperScans extends Source { // The name of this class does not hav
     }
 
     override async getHomePageSections(sectionCallback: (section: HomeSection) => void): Promise<void> {
-        throw new Error("Method not implemented")
+        // throw new Error("Method not implemented")
         // let request = {
         //     url: BASE_DOMAIN,
         //     method: 'GET'
         // }
 
-        // let response = await this.cloudscraper(request)
-        // let $ = this.cheerio.load(response)
+        let response = await getResponse(BASE_DOMAIN)
+        let $ = this.cheerio.load(response)
 
-        // let stringContains = function (str:string, cmp:string) {
-        //     if (str.length < cmp.length) {
-        //         return false;
-        //     }
+        let stringContains = function (str:string, cmp:string) {
+            if (str.length < cmp.length) {
+                return false;
+            }
         
-        //     for (let i = 0; i < str.length - cmp.length; i++) {
-        //         if (str.slice(i, i + cmp.length) === cmp) {
-        //             return true
-        //         }
-        //     }
-        //     return false
-        // }
+            for (let i = 0; i < str.length - cmp.length; i++) {
+                if (str.slice(i, i + cmp.length) === cmp) {
+                    return true
+                }
+            }
+            return false
+        }
 
-        // let todaysPicksSection = createHomeSection({
-        //     id: 'today',
-        //     title: 'Today\'s Picks',
-        //     type: HomeSectionType.featured,
-        // })
-        // sectionCallback(todaysPicksSection)
-        // let todaysPickItems = $('li').toArray()
-        //                     .filter(item => stringContains($(item).find('a').attr('href')!, 'comic'))
-        // todaysPicksSection.items = todaysPickItems.map(item => createMangaTile({
-        //     id: $(item).find('a').attr('href')!.slice(BASE_DOMAIN.length,),
-        //     title: createIconText({text: $(item).find('a.my-2').text()!.trim()}),
-        //     image: $(item).find('img').attr('src')!,
-        // }))
-        // sectionCallback(todaysPicksSection)
+        let todaysPicksSection = createHomeSection({
+            id: 'today',
+            title: 'Today\'s Picks',
+            type: HomeSectionType.featured,
+        })
+        sectionCallback(todaysPicksSection)
+        let todaysPickItems = $('li').toArray()
+                            .filter(item => stringContains($(item).find('a').attr('href')!, 'comic'))
+        todaysPicksSection.items = todaysPickItems.map(item => createMangaTile({
+            id: $(item).find('a').attr('href')!.slice(BASE_DOMAIN.length,),
+            title: createIconText({text: $(item).find('a.my-2').text()!.trim()}),
+            image: $(item).find('img').attr('src')!,
+        }))
+        sectionCallback(todaysPicksSection)
 
-        // let latestComicsSection = createHomeSection({
-        //     id: 'lastest',
-        //     title: 'Latest Comics',
-        //     view_more: true,
-        // })
-        // sectionCallback(latestComicsSection)
-        // let latestComicsItems = $('.grid').toArray()
-        //                         .map(item => $(item).children('.relative').toArray())[1]
-        // latestComicsSection.items = latestComicsItems!.map(item => createMangaTile({
-        //     id: $(item).find('a').attr('href')!.slice(BASE_DOMAIN.length,),
-        //     title: createIconText({text: $(item).find('a').text()!.trim()}),
-        //     image: $(item).find('img').attr('src')!,
-        // }))
-        // sectionCallback(latestComicsSection)
+        let latestComicsSection = createHomeSection({
+            id: 'lastest',
+            title: 'Latest Comics',
+            view_more: true,
+        })
+        sectionCallback(latestComicsSection)
+        let latestComicsItems = $('.grid').toArray()
+                                .map(item => $(item).children('.relative').toArray())[1]
+        latestComicsSection.items = latestComicsItems!.map(item => createMangaTile({
+            id: $(item).find('a').attr('href')!.slice(BASE_DOMAIN.length,),
+            title: createIconText({text: $(item).find('a').text()!.trim()}),
+            image: $(item).find('img').attr('src')!,
+        }))
+        sectionCallback(latestComicsSection)
     }
 
 }
