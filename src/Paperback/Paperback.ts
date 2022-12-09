@@ -32,24 +32,7 @@ import {
     searchRequest,
 } from "./Common";
 
-// This source use Komga REST API
-// https://komga.org/guides/rest.html
-
-// Manga are represented by `series`
-// Chapters are represented by `books`
-
-// The Basic Authentication is handled by the interceptor
-
-// Code and method used by both the source and the tracker are defined in the duplicated `KomgaCommon.ts` file
-
-// Due to the self hosted nature of Komga, this source requires the user to enter its server credentials in the source settings menu
-// Some methods are known to throw errors without specific actions from the user. They try to prevent this behavior when server settings are not set.
-// This include:
-//  - homepage sections
-//  - getTags() which is called on the homepage
-//  - search method which is called even if the user search in an other source
-
-export const PaperbackInfo: SourceInfo = {
+export const ReaperScans: SourceInfo = {
     version: "1.0.0",
     name: "ReaperScans",
     icon: "icon.png",
