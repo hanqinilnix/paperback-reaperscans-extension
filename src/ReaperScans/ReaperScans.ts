@@ -39,15 +39,16 @@ let BASE_DOMAIN = "https://reaperscans.com"
 
 
 export class ReaperScans extends Source { // The name of this class does not have to be {filename}.
-    cloudscraper = require('cloudscraper')
-
     requestManager = createRequestManager({
         requestsPerSecond: 2,
         requestTimeout: 10000,
     });
+    
+    cloudscraper = require('cloudscraper')
 
     // mangaId: comics/{some-number}-{title}/
     async getMangaDetails(mangaId: string): Promise<Manga> {
+        throw new Error("Method not implemented")
         let request = {
             url: BASE_DOMAIN + mangaId,
             method: 'GET'
@@ -76,6 +77,7 @@ export class ReaperScans extends Source { // The name of this class does not hav
     }
 
     async getChapters(mangaId: string): Promise<Chapter[]> {
+        throw new Error("Method not implemented")
         let request = {
             url: BASE_DOMAIN + mangaId,
             method: 'GET'
@@ -147,10 +149,8 @@ export class ReaperScans extends Source { // The name of this class does not hav
         })
     }
 
-    async getChapterDetails(
-        mangaId: string,
-        chapterId: string
-    ): Promise<ChapterDetails> {
+    async getChapterDetails(mangaId: string, chapterId: string): Promise<ChapterDetails> {
+        throw new Error("Method not implemented")
         let request = {
             url: BASE_DOMAIN + mangaId + chapterId,
             method: 'GET'
@@ -170,10 +170,7 @@ export class ReaperScans extends Source { // The name of this class does not hav
         })
     }
 
-    override async getSearchResults(
-        searchQuery: SearchRequest,
-        metadata: any
-    ): Promise<PagedResults> {
+    override async getSearchResults(searchQuery: SearchRequest, metadata: any): Promise<PagedResults> {
         throw new Error("Method not implemented")
     }
 
@@ -181,9 +178,8 @@ export class ReaperScans extends Source { // The name of this class does not hav
         return BASE_DOMAIN + mangaId;
     }
 
-    override async getHomePageSections(
-        sectionCallback: (section: HomeSection) => void
-    ): Promise<void> {
+    override async getHomePageSections(sectionCallback: (section: HomeSection) => void): Promise<void> {
+        throw new Error("Method not implemented")
         let request = {
             url: BASE_DOMAIN,
             method: 'GET'
