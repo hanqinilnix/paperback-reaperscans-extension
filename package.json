@@ -1,7 +1,10 @@
 {
   "name": "extensions-main",
   "version": "1.0.0",
-  "description": "The default source for Paperback, MangaDex",
+  "repositoryName": "ReaperScans",
+  "repositoryDescription": "Extension that pulls manhwa from ReaperScans",
+  "baseURL": "https://hanqinilnix.github.io/paperback-reaperscans-extension/",
+  "description": "A extension source for Paperback, ReaperScans",
   "main": "index.js",
   "scripts": {
     "start": "tsc && node dist/api.js",
@@ -11,7 +14,7 @@
     "bundle": "paperback bundle",
     "serve": "paperback serve"
   },
-  "author": "Faizan Durrani",
+  "author": "hanqinilnix",
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.11.0",
