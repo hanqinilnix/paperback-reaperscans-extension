@@ -15,6 +15,7 @@ import {
 } from "paperback-extensions-common";
 
 import { getResponse } from "./CloudscraperRequest";
+// const cloudscraper = require('cloudscraper')
 
 export const ReaperScansInfo: SourceInfo = { // The name of this variable has to be {filename}Info in order for the source to appear on the site.
     version: "1.0.0",
@@ -184,12 +185,12 @@ export class ReaperScans extends Source { // The name of this class does not hav
             method: 'GET',
         })
 
-        // let response = await this.requestManager.schedule(request, 1)
         let response = await getResponse(BASE_DOMAIN)
-        // response = await getResponse(BASE_DOMAIN)
-        if (response.status != 200) {
-            throw new Error("Fuck you: " + response.status)
-        }
+        // let response = await cloudscraper({URL: BASE_DOMAIN})
+        // let response = await this.requestManager.schedule(request, 1)
+        // if (response.status != 200) {
+        //     throw new Error("Fuck you: " + response.status)
+        // }
         let $ = this.cheerio.load(response.data)
 
         let stringContains = function (str:string, cmp:string) {
